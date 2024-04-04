@@ -1,0 +1,12 @@
+version: 0.0
+os: windows
+files:
+  - source: build_output
+    destination: C:\inetpub\wwwroot
+
+hooks:
+  BeforeInstall:
+    - location: .\scripts\StopIIS.ps1
+    - location: .\scripts\dotnethost.ps1
+  AfterInstall:
+    - location: .\scripts\StartIIS.ps1
